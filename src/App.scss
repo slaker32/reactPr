@@ -1,0 +1,58 @@
+html {
+  background-color: gainsboro;
+}
+.app_wrapper {
+  display: grid;
+  grid-gap: 1vw;
+  header {
+    grid-area: 1/1/2/12;
+    height: 50px;
+    background-color: white;
+    padding: 10px 0;
+    a {
+      display: flex;
+      align-items: center;
+      height: 100%;
+      text-decoration: none;
+      color: black;
+      text-transform: uppercase;
+      font-weight: bold;
+      img {
+        width: auto;
+        height: 100%;
+        object-fit: contain;
+      }
+    }
+  }
+  nav {
+    grid-area: 2/1/3/3;
+    margin: 0 0 0 5vw;
+    div {
+      padding: 10px 0;
+      cursor: pointer;
+      a {
+        text-decoration: none;
+        color: black;
+      }
+    }
+  }
+  .profile {
+    grid-area: 2/3/3/12;
+    margin: 0 5vw 0 0;
+    .profile_info {
+      padding: 10px;
+      background-color: white;
+      border-radius: 10px;
+      .avatar {
+        width: 200px;
+        height: 300px;
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: contain;
+        }
+      }
+    }
+
+  }
+}
