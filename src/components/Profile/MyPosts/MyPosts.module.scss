@@ -1,0 +1,35 @@
+.view_posts {
+  ul {
+    padding: 0;
+    li {
+      list-style-type: none;
+      padding: 10px;
+      background-color: white;
+      border-radius: 5px;
+      margin-bottom: 5px;
+    }
+  }
+}
+.form {
+  height: 40px;
+  display: flex;
+  align-items: center;
+  input {
+    height: 100%;
+    width: 100%;
+    border: none;
+    outline: none;
+    padding: 0 10px;
+  }
+  button {
+    height: 100%;
+    border: none;
+    background-color: cadetblue;
+    padding: 0 10px;
+    margin-left: 20px;
+    cursor: pointer;
+  }
+}
+.myPosts {
+  margin-top: 50px;
+}

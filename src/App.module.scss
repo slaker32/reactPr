@@ -1,0 +1,10 @@
+html {
+  background-color: gainsboro;
+}
+.app_wrapper {
+  display: grid;
+  grid-gap: 1vw;
+}
+.content {
+  grid-area: 2/3/3/12;
+}

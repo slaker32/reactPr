@@ -1,0 +1,23 @@
+.wrapper {
+  display: grid;
+  grid-gap: 2vw;
+  grid-template-columns: 3fr 10fr;
+}
+.dialogs_wrapper {
+  display: flex;
+  flex-direction: column;
+  a {
+    text-decoration: none;
+    color: black;
+    padding: 10px;
+    margin-bottom: 5px;
+    &:hover {
+      background-color: cadetblue;
+      color: white;
+    }
+  }
+  .active {
+    background-color: cadetblue;
+    color: white;
+  }
+}
