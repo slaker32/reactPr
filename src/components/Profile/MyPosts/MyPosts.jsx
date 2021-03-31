@@ -1,13 +1,8 @@
 import Post from "./Post/Post";
 import s from './MyPosts.module.scss'
 
-const MyPosts = () => {
-const postData = [
-    {id: 1,message: 'Привет'},
-    {id: 2,message: 'Я алексей'},
-    {id: 3,message: 'реатк'},
-]
-    const newPostData = postData.map(elem => {
+const MyPosts = (props) => {
+    const newPostData = props.posts.map(elem => {
         return (
             <Post message={elem.message}/>
         )

@@ -5,15 +5,15 @@ import Profile from "./components/Profile/Profile";
 import Dialogs from "./components/Dialogs/Dialogs";
 import {BrowserRouter,Route} from "react-router-dom";
 
-const App = () => {
+const App = (props) => {
   return (
     <div className={s.app_wrapper}>
         <BrowserRouter>
             <Header />
             <Nav />
             <div className={s.content}>
-                <Route path='/profile' component={Profile}/>
-                <Route path='/dialogs' component={Dialogs}/>
+                <Route path='/profile' render={()=><Profile posts={props.state.posts}/>}/>
+                <Route path='/dialogs' render={()=><Dialogs dialogs={props.state.dialogs} messages={props.state.messages}  />}/>
             </div>
 
         </BrowserRouter>
