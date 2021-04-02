@@ -8,7 +8,11 @@ const Profile = (props) => {
                     <img src="https://365psd.com/images/istock/previews/1009/100996291-male-avatar-profile-picture-vector.jpg" alt=""/>
                 </div>
             </div>
-            <MyPosts posts={props.posts}/>
+            <MyPosts
+                state={props.state}
+                addPost={props.addPost}
+                addPostText={props.addPostText}
+            />
         </div>
     )
 }
