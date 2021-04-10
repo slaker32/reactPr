@@ -13,11 +13,12 @@ const App = (props) => {
             <Nav />
             <div className={s.content}>
                 <Route path='/profile' render={()=><Profile
+
                     state={props.state.profilePage}
-                    addPost={props.addPost}
-                    addPostText={props.addPostText}
+                    dispatch={props.dispatch}
                 />}/>
-                <Route path='/dialogs' render={()=><Dialogs dialogs={props.state.dialogs} messages={props.state.messages}  />}/>
+                <Route path='/dialogs' render={()=><Dialogs state={props.state.dialogsPage}
+                                                            dispatch={props.dispatch}/>}/>
             </div>
 
         </BrowserRouter>

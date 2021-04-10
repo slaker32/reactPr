@@ -1,6 +1,6 @@
 import React from 'react';
 import './index.css';
-import state, {addPost, addPostText,subscriber} from "./redux/state";
+import store from "./redux/store";
 import ReactDOM from "react-dom";
 import App from "./App";
 
@@ -8,9 +8,10 @@ import App from "./App";
 export const rerender = (state) => {
     ReactDOM.render(
         <React.StrictMode>
-            <App state={state} addPost={addPost} addPostText={addPostText} />
+            <App state={state}
+                 dispatch={store.dispatch.bind(store)} />
         </React.StrictMode>,document.getElementById('root')
     );
 }
-rerender(state)
-subscriber(rerender)
+rerender(store.getState())
+store.subscriber(rerender)

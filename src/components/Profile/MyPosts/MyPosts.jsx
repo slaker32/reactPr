@@ -1,6 +1,7 @@
 import Post from "./Post/Post";
 import s from './MyPosts.module.scss'
 import React from "react";
+import {addPostActionCreator, addPostTextActionCreator} from "../../../redux/store";
 
 const MyPosts = (props) => {
     const newPostData = props.state.posts.map(elem => {
@@ -11,9 +12,12 @@ const MyPosts = (props) => {
     let linkInput = React.createRef();
     const inputValue = (e) => {
         e.preventDefault()
-        let value = linkInput.current.value
-        props.addPost(value)
+        props.dispatch(addPostActionCreator())
 
+    }
+    const callOnChange = () => {
+        let text = linkInput.current.value;
+        props.dispatch(addPostTextActionCreator(text))
     }
 
     return (
@@ -22,7 +26,7 @@ const MyPosts = (props) => {
             <form className={s.form} action="#">
                 <input
                     ref={linkInput} type="text"
-                    onChange={() => props.addPostText(linkInput.current.value)}
+                    onChange={callOnChange}
                     value={props.state.postText}
                 />
                 <button onClick={inputValue}>Отправить</button>
