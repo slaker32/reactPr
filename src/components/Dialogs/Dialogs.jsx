@@ -2,26 +2,25 @@ import {NavLink} from "react-router-dom";
 import s from './Dialogs.module.scss'
 import Message from "./Message/Message";
 import Dialog from "./Dialog/Dialog";
-import {addMessageCreator, updateMessageCreator} from "../../redux/store";
 const Dialogs = (props) => {
-    const newDialogs = props.state.dialogs.map(elem => {
+    const newDialogs = props.dialogs.map(elem => {
         return (
             <Dialog id={elem.id} name={elem.name} />
         )
     })
 
-    const newMessages = props.state.messages.map(elem => {
+    const newMessages = props.messages.map(elem => {
         return (
             <Message message={elem.message} />
         )
     })
 
-    const updateInputValue = (e) => {
-        let bodyMessage = e.target.value;
-        props.dispatch(updateMessageCreator(bodyMessage))
+    const updateMessage = (e) => {
+        let message = e.target.value;
+        props.updateMessage(message)
     }
     const addMessage = () => {
-        props.dispatch(addMessageCreator())
+        props.addMessage()
     }
     return (
         <div className={s.wrapper}>
@@ -30,7 +29,7 @@ const Dialogs = (props) => {
             </div>
             <div className="messages_wrapper">
                 <div>{newMessages}</div>
-                <div><input className={s.input} type="text" onChange={updateInputValue} value={props.state.newTextMessages}/> </div>
+                <div><input className={s.input} type="text" onChange={updateMessage} value={props.newTextMessages}/> </div>
                 <div><button className={s.button} onClick={addMessage}>Отправить</button></div>
             </div>
         </div>

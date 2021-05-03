@@ -1,35 +1,30 @@
 import Post from "./Post/Post";
 import s from './MyPosts.module.scss'
 import React from "react";
-import {addPostActionCreator, addPostTextActionCreator} from "../../../redux/store";
 
 const MyPosts = (props) => {
-    const newPostData = props.state.posts.map(elem => {
+    const newPostData = props.posts.map(elem => {
         return (
             <Post message={elem.message}/>
         )
     })
-    let linkInput = React.createRef();
-    const inputValue = (e) => {
-        e.preventDefault()
-        props.dispatch(addPostActionCreator())
-
+    const onAddPost = () => {
+        props.addPost()
     }
-    const callOnChange = () => {
-        let text = linkInput.current.value;
-        props.dispatch(addPostTextActionCreator(text))
+    const onUpdatePostText = (e) => {
+        const text = e.target.value
+        props.updatePostText(text)
     }
-
-    return (
+     return (
         <div className={s.myPosts}>
             <div className="my_post_form_title">Мои посты</div>
             <form className={s.form} action="#">
                 <input
-                    ref={linkInput} type="text"
-                    onChange={callOnChange}
-                    value={props.state.postText}
+                    type="text"
+                    onChange={onUpdatePostText}
+                    value={props.postText}
                 />
-                <button onClick={inputValue}>Отправить</button>
+                <button onClick={onAddPost}>Отправить</button>
             </form>
             <div className={s.view_posts}>
                 <ul>

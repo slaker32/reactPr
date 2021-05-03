@@ -1,5 +1,5 @@
 import s from './Profile.module.scss'
-import MyPosts from "./MyPosts/MyPosts";
+import MyPostsContainer from "./MyPosts/MyPostsContainer";
 const Profile = (props) => {
     return (
         <div className={s.profile}>
@@ -8,10 +8,7 @@ const Profile = (props) => {
                     <img src="https://365psd.com/images/istock/previews/1009/100996291-male-avatar-profile-picture-vector.jpg" alt=""/>
                 </div>
             </div>
-            <MyPosts
-                state={props.state}
-                dispatch={props.dispatch}
-            />
+            <MyPostsContainer store={props.store} />
         </div>
     )
 }
